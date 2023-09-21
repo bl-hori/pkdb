@@ -1,0 +1,77 @@
+{% extends 'base/layout.html' %}
+
+{% block content %}
+<div class="ui grid stackable">
+    <div class="eleven wide column">
+        <h1>野生のポケモンがあらわれた！</h1>
+        <div class="ui centered card">
+            <a class="ui image tiny centered" href="#">
+                <img src="{{ pokemon.sprite }}">
+            </a>
+            <div class="content">
+                <div class="header">{{ pokemon.key }}</div>
+            </div>
+            <div class="content">
+                <div class="ui feed">
+                    <div class="event">
+                        <div class="content">
+                            <div class="summary">
+                                {{ pokemon.types }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="content">
+                            <div class="summary">
+                                {{ pokemon.flavorTexts }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="ui two buttons">
+                    <div class="ui basic red button">捕まえる</div>
+                    <div class="ui basic blue button"><a href="{% url 'pokemon.list' %}">逃がす</a></div>
+                </div>
+            </div>
+        </div>
+        <h1>進化系一覧</h1>
+        {% for pokemon in evolution_list %}
+        <div class="ui card">
+            <a class="ui image tiny centered" href="#">
+                <img src="{{ pokemon.sprite }}">
+            </a>
+            <div class="content">
+                <div class="header">{{ pokemon.key }}</div>
+            </div>
+            <div class="content">
+                <div class="ui feed">
+                    <div class="event">
+                        <div class="content">
+                            <div class="summary">
+                                {{ pokemon.types }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event">
+                        <div class="content">
+                            <div class="summary">
+                                {{ pokemon.flavorTexts }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="extra content">
+                <div class="ui two buttons">
+                    <div class="ui basic red button">捕まえる</div>
+                    <div class="ui basic blue button"><a href="{% url 'pokemon.detail' key=pokemon.key %}">調べる</a></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% include "base/navbar.html" %}
+</div>
+{% endblock %}

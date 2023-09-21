@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="ja">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div class="ui stackable inverted menu">
+        <a class="item" href="{% url 'pokemon.list' %}">PKDB</a>
+        <div class="right menu">
+            <a class="item">
+                Log in
+            </a>
+            <a class="item">
+                Sign up
+            </a>
+        </div>
+    </div>
+
+    <div class="ui container" style="min-height:100vh;">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div class="ui inverted stackable footer segment">
+        <div class="ui container center aligned">
+            <div class="ui horizontal inverted small divided link list">
+                <a class="item">© pkdb</a>
+                <a class="item">利用規約</a>
+                <a class="item">プライバシーポリシー</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    {% block scripts %}
+    {% endblock %}
+</body>
